@@ -1,0 +1,196 @@
+
+
+
+def prime_factors(n):   #  return array of prime factors
+    factors = []
+    d = 2
+    while n > 1:
+        while n % d == 0:
+            factors.append(d)
+            n = n / d
+        d = d + 1
+     return factors
+
+def unique_prime_factors(n):
+    """Returns all the prime factors of a positive integer"""
+    factors = []
+    d = 2
+    while n > 1:
+        while n % d == 0:
+            if (d not in factors):
+                factors.append(d)
+            n /= d
+        d = d + 1
+    num=len(factors)
+    return num
+
+
+
+def is_prime(n):    #  return boolean answer to "is prime"?
+    if (n == 1):
+        return False
+    if (n % 2 == 0):
+        return False
+    switch=True
+    i=2
+    while (i< (n/2) ):
+        if (n % i == 0 ):
+            switch=False
+        i=i+1
+    return switch
+
+
+def SieveOfEratosthenes(n):    # return array of primes 2 to n
+    my_list=[]  
+    # Create a boolean array "prime[0..n]" and initialize 
+    # all entries it as true. A value in prime[i] will 
+    # finally be false if i is Not a prime, else true. 
+    prime = [True for i in range(n + 1)] 
+    p = 2
+    while (p * p <= n): 
+          
+        # If prime[p] is not changed, then it is a prime 
+        if (prime[p] == True): 
+              
+            # Update all multiples of p 
+            for i in range(p * 2, n + 1, p): 
+                prime[i] = False
+        p += 1
+    prime[0]= False
+    prime[1]= False
+    # Print all prime numbers 
+    for p in range(n + 1): 
+        if prime[p]: 
+           # print (p)
+            my_list.append(p)
+    return my_list
+
+
+
+def triangle_nums(n):   
+    my_list=[]
+    i=1
+    while i < n:
+        t=int(i*(i+1)/2)
+        my_list.append(t)
+        i=i+1
+    return my_list
+
+def pentagonal_nums(n):  
+    my_list=[]
+    i=1
+    while i < n:
+        t=int(i*(3*i-1)/2)
+        my_list.append(t)
+        i=i+1
+    return my_list
+
+def hexagonal_nums(n):  
+    my_list=[]
+    i=1
+    while i < n:
+        t=int(i*(2*i-1))
+        my_list.append(t)
+        i=i+1
+    return my_list
+
+
+
+
+
+
+def pallindrome(n,l):     # append to list if number reads same forwards and backwards
+    backwards=0    # initialize
+    m=n
+    while m>0:
+        digit= m %10
+        backward=backward*10 +digit 
+        m=int((m-digit)/10)
+
+    if n==backward:
+        print("Yes is pallindrome")
+        l.append(n)
+    return l
+
+
+def factorial(n):
+    if n < 2:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+
+def proper_divors(n,my_array):
+    i=1
+    while i<n:
+        if (n%i == 0):
+            my_array.append(i)
+        i=i+1
+    return my_array
+
+
+def fractionToDecimal( numr, denom ):
+
+    result="0."
+    rem_list=[]
+    remainder=numr%denom
+
+    
+
+    while (remainder!=0) and (remainder not in rem_list) :
+        
+        rem_list.append(remainder)
+        digit=int((remainder*10)/denom)
+        result=result+str(digit)
+
+        last=len(result)
+        if ( result[last-1] == result[last-2 ] ):
+            return(result)
+        remainder=(remainder*10)%denom
+
+    return(result)
+
+
+
+
+def pandigital_product(x,y,prod):
+    switch=True
+    my_string=str(x)+str(y)+str(prod)
+    i=1
+    while i<10:
+        if (my_string.count(str(i)) != 1):
+            switch=False
+        i=i+1
+    if (my_string.count(str(0)) != 0):
+        switch = False
+    return switch
+
+
+
+
+
+
+
+
+
+def remove_left(n):      # convert int to string and remove first character
+    left_array=[]
+    my_string=str(n)
+    i=0
+    while i < len(my_string):
+        left_array.append(my_string[i:])
+        i=i+1
+    return left_array
+
+def remove_right(n):     # convert int to string and remove last character
+    left_array=[]
+    my_string=str(n)
+    i=0
+    while i < len(my_string):
+        left_array.append(my_string[:len(my_string)-i])
+        i=i+1
+    return left_array
+
+
+
+
